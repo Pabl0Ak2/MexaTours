@@ -1,0 +1,14 @@
+<div class="flex items-center justify-center h-screen bg-green-200">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Selecciona tu asiento</h1>
+      <p class="mb-6">Destino: {{ destinoId === 1 ? 'Ciudad de México' : destinoId === 2 ? 'Guadalajara' : 'Monterrey' }}</p>
+      <div class="grid grid-cols-5 gap-4">
+        <button *ngFor="let asiento of asientosDisponibles" 
+                class="w-16 h-16 bg-blue-500 text-white rounded" 
+                (click)="reservarAsiento(asiento)">
+          {{ asiento }}
+        </button>
+      </div>
+    </div>
+  </div>
+  

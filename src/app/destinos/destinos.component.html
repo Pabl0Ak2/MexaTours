@@ -1,0 +1,15 @@
+<div class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Elige tu destino</h1>
+      <ul class="space-y-4">
+        <li *ngFor="let destino of destinos">
+          <a [routerLink]="['/asientos', destino.id]" class="px-6 py-2 bg-blue-500 rounded text-white font-semibold">{{ destino.nombre }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Agrega un botón para cerrar sesión -->
+<button (click)="logout()" class="px-6 py-2 bg-red-500 text-white rounded">
+    Cerrar Sesión
+  </button>
+  

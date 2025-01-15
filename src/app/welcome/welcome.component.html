@@ -1,0 +1,37 @@
+<div class="flex items-center justify-center h-screen bg-blue-500 text-white">
+    <div class="text-center bg-white text-black p-8 rounded-lg shadow-lg w-96">
+      <!-- Título de bienvenida -->
+      <h1 class="text-5xl font-extrabold text-blue-600 mb-6">Bienvenido a</h1>
+      <h2 class="text-4xl font-semibold text-yellow-500 mb-6">MexaTours</h2>
+  
+      <!-- Formulario de login -->
+      <h3 class="text-3xl font-semibold text-gray-700 mb-6">Iniciar Sesión</h3>
+      <form (ngSubmit)="login()" class="space-y-6">
+        <div>
+          <label for="username" class="block font-semibold text-gray-800">Usuario</label>
+          <input [(ngModel)]="username" name="username" id="username" type="text" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+        </div>
+  
+        <div>
+          <label for="password" class="block font-semibold text-gray-800">Contraseña</label>
+          <input [(ngModel)]="password" name="password" id="password" type="password" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+        </div>
+  
+        <!-- Mensaje de error -->
+        <div *ngIf="errorMessage" class="text-red-500 mt-2 text-sm">
+          {{ errorMessage }}
+        </div>
+  
+        <!-- Botón de login -->
+        <button type="submit" class="w-full py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-300">
+          Iniciar Sesión
+        </button>
+      </form>
+  
+      <!-- Pie de página -->
+      <div class="mt-6 text-sm text-gray-600">
+        <p>¿No tienes cuenta? <a href="#" class="text-yellow-500 font-semibold">Regístrate aquí</a></p>
+      </div>
+    </div>
+  </div>
+  
