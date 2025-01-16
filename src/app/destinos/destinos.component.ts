@@ -22,13 +22,15 @@ export class DestinosComponent {
   estadoDestino: string = '';
   tipoAutobus: string = '';
   mensaje: string = '';
-  mostrarModal: boolean = false; // Control del modal
+  mostrarModal: boolean = false;
+  fechaSalida: string = '';
+  fechaRegreso: string = ''; 
 
   constructor(private authService: AuthService, private router: Router) {}
 
   // Función para guardar y mostrar el modal
   guardarDestino(): void {
-    if (this.estadoActual && this.estadoDestino && this.tipoAutobus) {
+    if (this.estadoActual && this.estadoDestino && this.tipoAutobus && this.fechaSalida && this.fechaRegreso) {
       this.mensaje = 'Selección guardada con éxito';
       this.mostrarModal = true; // Mostrar el modal
     } else {
