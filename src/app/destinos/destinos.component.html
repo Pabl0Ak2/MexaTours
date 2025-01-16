@@ -1,27 +1,29 @@
-<div class="flex flex-col items-center justify-center space-y-6 bg-black bg-opacity-70">
-  <h1 class="text-3xl font-bold text-white">Selecciona tu estado actual, destino y tipo de autobús</h1>
+<div class="flex flex-col items-center justify-center p-6 space-y-6 bg-black bg-opacity-70 min-h-screen">
+  <h1 class="text-2xl md:text-3xl font-bold text-white text-center">
+    Selecciona tu estado actual, destino y tipo de autobús
+  </h1>
 
   <!-- Sección con fondo blanco -->
-  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
-    <div class="flex items-center justify-center space-x-6">
+  <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg lg:max-w-4xl">
+    <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
       <!-- Select para el estado actual -->
-      <div>
-        <label for="estadoActual" class="block text-lg font-semibold text-gray-700 mb-2 text-center">Origen:🛫</label>
+      <div class="w-full md:w-1/2">
+        <label for="estadoActual" class="block text-lg font-semibold text-gray-700 mb-2 text-center">
+          Origen: 🛫
+        </label>
         <select
           [(ngModel)]="estadoActual"
           name="estadoActual"
           id="estadoActual"
-          class="w-64 p-2 border border-gray-300 rounded"
+          class="w-full p-2 border border-gray-300 rounded"
         >
           <option value="" disabled selected>Selecciona tu origen</option>
           <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
         </select>
+
         <!-- Fecha de salida -->
         <div class="mt-4">
-          <label
-            for="fechaSalida"
-            class="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label for="fechaSalida" class="block text-sm font-medium text-gray-700 mb-1">
             Fecha de Salida:
           </label>
           <input
@@ -35,27 +37,26 @@
       </div>
 
       <!-- Línea de conexión horizontal -->
-      <div class="w-16 border-t-2 border-gray-400"></div>
+      <div class="hidden md:block w-16 border-t-2 border-gray-400"></div>
 
       <!-- Select para el estado destino -->
-      <div>
-        <label for="estadoDestino" 
-        class="block text-lg font-semibold text-gray-700 mb-2 text-center">Destino:🛬</label>
+      <div class="w-full md:w-1/2">
+        <label for="estadoDestino" class="block text-lg font-semibold text-gray-700 mb-2 text-center">
+          Destino: 🛬
+        </label>
         <select
           [(ngModel)]="estadoDestino"
           name="estadoDestino"
           id="estadoDestino"
-          class="w-64 p-2 border border-gray-300 rounded"
+          class="w-full p-2 border border-gray-300 rounded"
         >
           <option value="" disabled selected>Selecciona tu destino</option>
           <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
         </select>
+
         <!-- Fecha de regreso -->
         <div class="mt-4">
-          <label
-            for="fechaRegreso"
-            class="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label for="fechaRegreso" class="block text-sm font-medium text-gray-700 mb-1">
             Fecha de Regreso:
           </label>
           <input
@@ -70,8 +71,10 @@
     </div>
 
     <div class="flex flex-col items-center space-y-6 mt-8">
-      <h2 class="text-2xl font-semibold text-gray-700">Selecciona el tipo de autobús</h2>
-      <div class="flex space-x-6">
+      <h2 class="text-xl md:text-2xl font-semibold text-gray-700 text-center">
+        Selecciona el tipo de autobús
+      </h2>
+      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
         <!-- Opción: Económico -->
         <label class="cursor-pointer transition-transform transform hover:scale-105 duration-300 ease-in-out">
           <input
@@ -86,7 +89,7 @@
             [class.bg-blue-100]="tipoAutobus === 'Económico'"
             [class.bg-gray-100]="tipoAutobus !== 'Económico'"
           >
-            <p class="text-xl font-semibold text-gray-700">Económico</p>
+            <p class="text-lg md:text-xl font-semibold text-gray-700">Económico</p>
             <p class="text-sm text-gray-500">Asientos básicos</p>
           </div>
         </label>
@@ -105,7 +108,7 @@
             [class.bg-blue-100]="tipoAutobus === 'Primera Clase'"
             [class.bg-gray-100]="tipoAutobus !== 'Primera Clase'"
           >
-            <p class="text-xl font-semibold text-gray-700">Primera Clase</p>
+            <p class="text-lg md:text-xl font-semibold text-gray-700">Primera Clase</p>
             <p class="text-sm text-gray-500">Comodidad y entretenimiento</p>
           </div>
         </label>
@@ -124,7 +127,7 @@
             [class.bg-blue-100]="tipoAutobus === 'Premium'"
             [class.bg-gray-100]="tipoAutobus !== 'Premium'"
           >
-            <p class="text-xl font-semibold text-gray-700">Premium</p>
+            <p class="text-lg md:text-xl font-semibold text-gray-700">Premium</p>
             <p class="text-sm text-gray-500">Wi-Fi y servicio de alimentos</p>
           </div>
         </label>
@@ -141,29 +144,29 @@
   </div>
 
   <!-- Modal para mostrar detalles -->
-  <div *ngIf="mostrarModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-w-lg">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Detalles del Trayecto</h2>
-      
-      <!-- Detalles del trayecto -->
+  <div *ngIf="mostrarModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center px-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4 text-center">
+        Detalles del Trayecto
+      </h2>
       <div class="space-y-4 text-lg text-gray-700">
         <div>
           <strong class="font-medium">Estado Actual:</strong> {{ estadoActual }}
-          <strong class="font-medium">Estado Actual:</strong> {{ fechaSalida }}
+        </div>
+        <div>
+          <strong class="font-medium">Fecha de Salida:</strong> {{ fechaSalida }}
         </div>
         <div>
           <strong class="font-medium">Estado Destino:</strong> {{ estadoDestino }}
-          <strong class="font-medium">Estado Destino:</strong> {{ fechaRegreso }}
+        </div>
+        <div>
+          <strong class="font-medium">Fecha de Regreso:</strong> {{ fechaRegreso }}
         </div>
         <div>
           <strong class="font-medium">Tipo de Autobús:</strong> {{ tipoAutobus }}
         </div>
       </div>
-  
-      <!-- Confirmación -->
-      <h3 class="text-xl font-semibold text-gray-800 mt-4">¿Estás seguro de continuar?</h3>
-  
-      <!-- Botones de acción -->
+
       <div class="mt-6 flex justify-between items-center">
         <button (click)="cerrarModal()" class="px-6 py-2 bg-gray-500 text-white font-semibold rounded-lg hover:bg-gray-600 transition-colors">
           Cancelar
@@ -174,13 +177,15 @@
       </div>
     </div>
   </div>
-  
 
   <!-- Mensaje de confirmación -->
-  <p *ngIf="mensaje" class="text-green-500 font-bold">{{ mensaje }}</p>
+  <p *ngIf="mensaje" class="text-green-500 font-bold text-center">{{ mensaje }}</p>
 
   <!-- Botón para cerrar sesión -->
-  <button (click)="logout()" class="mt-4 px-6 py-2 bg-red-500 text-white font-semibold rounded">
+  <button
+    (click)="logout()"
+    class="mt-4 px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition"
+  >
     Cerrar Sesión
   </button>
 </div>

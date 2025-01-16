@@ -1,14 +1,57 @@
-<div class="flex items-center justify-center h-screen">
-    <div class="text-center">
-      <h1 class="text-3xl font-bold mb-6">Selecciona tu asiento</h1>
-      <p class="mb-6">Destino: {{ destinoId === 1 ? 'Ciudad de México' : destinoId === 2 ? 'Guadalajara' : 'Monterrey' }}</p>
-      <div class="grid grid-cols-5 gap-4">
-        <button *ngFor="let asiento of asientosDisponibles" 
-                class="w-16 h-16 bg-blue-500 text-white rounded" 
-                (click)="reservarAsiento(asiento)">
-          {{ asiento }}
-        </button>
-      </div>
+<!-- <div class="flex items-center justify-center h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white">
+  <div class="text-center space-y-6 p-8 bg-gray-800 bg-opacity-90 rounded-lg shadow-xl">
+
+    <h1 class="text-4xl font-extrabold text-yellow-400 animate-pulse">Selecciona tu asiento</h1>
+
+ 
+    <p class="text-lg font-medium">
+      Destino: 
+      <span class="text-yellow-300 font-semibold">
+        {{ destinoId === 1 ? 'Ciudad de México' : destinoId === 2 ? 'Guadalajara' : 'Monterrey' }}
+      </span>
+    </p>
+
+
+    <div class="grid grid-cols-5 gap-4">
+      <button
+        *ngFor="let asiento of asientosDisponibles"
+        class="w-16 h-16 flex items-center justify-center bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-400 hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-in-out"
+        (click)="reservarAsiento(asiento)"
+      >
+        {{ asiento }}
+      </button>
     </div>
   </div>
-  
+</div>
+ -->
+ <div class="flex items-center justify-center h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white">
+  <div class="text-center space-y-6 p-8 bg-gray-800 bg-opacity-90 rounded-lg shadow-xl">
+    <!-- Título -->
+    <h1 class="text-4xl font-extrabold text-yellow-400 animate-pulse">Selecciona tu asiento</h1>
+
+    <!-- Mensaje de proceso -->
+    <div class="flex items-center justify-center space-x-2 text-gray-300 text-sm italic">
+      <span>En proceso de terminar se que aún se ve feo</span>
+      <span class="text-yellow-400 text-lg">🛠️</span>
+    </div>
+
+    <!-- Destino -->
+    <p class="text-lg font-medium">
+      Destino: 
+      <span class="text-yellow-300 font-semibold">
+        {{ destinoId === 1 ? 'Ciudad de México' : destinoId === 2 ? 'Guadalajara' : 'Monterrey' }}
+      </span>
+    </p>
+
+    <!-- Asientos -->
+    <div class="grid grid-cols-5 gap-4">
+      <button
+        *ngFor="let asiento of asientosDisponibles"
+        class="w-16 h-16 flex items-center justify-center bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-400 hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-in-out"
+        (click)="reservarAsiento(asiento)"
+      >
+        {{ asiento }}
+      </button>
+    </div>
+  </div>
+</div>

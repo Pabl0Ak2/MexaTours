@@ -21,6 +21,6 @@ export class AsientosComponent implements OnInit {
 
   // Método para mostrar la alerta cuando se selecciona un asiento
   reservarAsiento(asiento: number): void {
-    alert('Asiento ' + asiento + ' reservado');
+    alert(`Has reservado el asiento ${asiento}`);
   }
 }
